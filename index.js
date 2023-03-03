@@ -66,3 +66,37 @@ const CommentForLikes = (arr) => {
 };
 
 CommentForLikes(arrOfLikes);
+
+// https://www.codewars.com/kata/554ca54ffa7d91b236000023/javascript
+
+const arr3 = [1, 2, 3, 1, 2, 1, 2, 3];
+const number = 2;
+
+const removeRepeatedNum = (num, arr) => {
+  let count = [];
+  const newArr = arr.filter((i) => {
+    count[i] = (count[i] || 0) + 1;
+    if (count[i] <= num) {
+      return i;
+    }
+  });
+  return newArr;
+};
+
+removeRepeatedNum(number, arr3);
+
+const arr4 = [2, 4, 0, 100, 4, 11, 2602, 36];
+
+const findOutlier = (arr) => {
+  const findEven = arr.filter((i) => i % 2 === 0);
+  let outlier;
+
+  if (findEven.length === 1) {
+    outlier = arr.filter((i) => findEven.includes(i));
+  } else {
+    outlier = arr.filter((i) => !findEven.includes(i));
+  }
+  return outlier;
+};
+
+findOutlier(arr4);
