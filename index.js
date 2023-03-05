@@ -6,8 +6,11 @@
 const array = [1, 1, 1, 2, 2, 7, 8];
 
 const uniqueInt = (arr) => {
-  return new Set(arr);
+  const uniqueArr = [...new Set(arr)];
+
+  return uniqueArr;
 };
+
 uniqueInt(array);
 
 // https://www.codewars.com/kata/523f5d21c841566fde000009/javascript
@@ -28,44 +31,39 @@ arrayDiff(arr1, arr2);
 const integersArr1 = [];
 
 const evenOrOdd = (array) => {
-  if ((array = [])) {
-    array = [0];
-  }
+  const initialValue = 0;
+  const sum = array.reduce((sum, item) => sum + item, initialValue);
 
-  const sum = array.reduce((sum, item) => sum + item);
-  if (sum % 2 === 0) {
-    return "even";
-  } else {
-    return "odd";
-  }
+  return sum % 2 === 0 ? "even" : "odd";
 };
 
-evenOrOdd(integersArr1);
+console.log(evenOrOdd(integersArr1));
 
 // https://www.codewars.com/kata/5266876b8f4bf2da9b000362/javascript
 
 const arrOfLikes = ["Alex", "Jacob", "Mark", "Max"];
 
-const CommentForLikes = (arr) => {
-  let text;
+const commentForLikes = (arr) => {
   const likesCount = arr.length;
-
   const othersCount = likesCount - 2;
 
-  if (likesCount === 0) {
-    return (text = "no one likes this");
-  } else if (likesCount === 1) {
-    return (text = `${arr[0]} likes this `);
-  } else if (likesCount === 2) {
-    return (text = `${arr[0]} and ${arr[1]} like this `);
-  } else if (likesCount === 3) {
-    return (text = `${arr[0]}, ${arr[1]} and ${arr[2]} like this `);
-  } else {
-    return (text = `${arr[0]}, ${arr[1]} and ${othersCount} others like this `);
+  switch (true) {
+    case likesCount === 0:
+      return "no one likes this";
+    case likesCount === 1:
+      return `${arr[0]} likes this `;
+    case likesCount === 2:
+      return `${arr[0]} and ${arr[1]} like this`;
+    case likesCount === 3:
+      return `${arr[0]}, ${arr[1]} and ${arr[2]} like this`;
+    case likesCount > 3:
+      return `${arr[0]}, ${arr[1]} and ${othersCount} others like this `;
+    default:
+      return "no one likes this";
   }
 };
 
-CommentForLikes(arrOfLikes);
+commentForLikes(arrOfLikes);
 
 // https://www.codewars.com/kata/554ca54ffa7d91b236000023/javascript
 
@@ -73,7 +71,7 @@ const arr3 = [1, 2, 3, 1, 2, 1, 2, 3];
 const number = 2;
 
 const removeRepeatedNum = (num, arr) => {
-  let count = [];
+  const count = [];
   const newArr = arr.filter((i) => {
     count[i] = (count[i] || 0) + 1;
     if (count[i] <= num) {
@@ -84,6 +82,8 @@ const removeRepeatedNum = (num, arr) => {
 };
 
 removeRepeatedNum(number, arr3);
+
+// https://www.codewars.com/kata/5526fc09a1bbd946250002dc/javascript
 
 const arr4 = [2, 4, 0, 100, 4, 11, 2602, 36];
 
