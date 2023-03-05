@@ -37,7 +37,7 @@ const evenOrOdd = (array) => {
   return sum % 2 === 0 ? "even" : "odd";
 };
 
-console.log(evenOrOdd(integersArr1));
+evenOrOdd(integersArr1);
 
 // https://www.codewars.com/kata/5266876b8f4bf2da9b000362/javascript
 
@@ -71,7 +71,7 @@ const arr3 = [1, 2, 3, 1, 2, 1, 2, 3];
 const number = 2;
 
 const removeRepeatedNum = (num, arr) => {
-  const count = [];
+  const count = {};
   const newArr = arr.filter((i) => {
     count[i] = (count[i] || 0) + 1;
     if (count[i] <= num) {
